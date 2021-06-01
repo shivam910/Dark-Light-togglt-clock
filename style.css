@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: black;
+}
+
+body.light{
+    background: #d1dae3;
+}
+
+.clock{
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:black  url(clock.png);
+    background-size: cover;
+    border: 4px solid black;
+    border-radius: 20%;
+    box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+                inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+                0 15px 15px rgba(0, 0, 0, 0.5),
+                inset 0 15px 15px rgba(182, 126, 126, 0.5);
+}
+
+body.light .clock{
+    background: #d1dae3  url(clock.png);
+    background-size: cover;
+    border: 4px solid #cad3dc;
+    box-shadow: 0 -8px -8px rgba(255, 255, 255, 0.5),
+                0 10px 10px rgba(0, 0, 0, 0.3),
+                inset 0 -8px -8px rgba(255, 255, 255, 0.5),
+                inset 0 10px 10px rgba(182, 126, 126, 0.3);
+}
+
+.clock::before{
+    content:"";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 35%;
+}
+
+.clock::before body.light{
+    background: #008eff;
+}
+
+.clock.hour, 
+.clock.minute,
+.clock.second{
+    position : absolute;
+}
+
+.clock.hour.hr{
+    width: 160px;
+    height: 160px;
+}
+
+.clock.minute.min{
+    width: 190px;
+    height: 190px;
+}
+
+.clock.second.sec{
+    width: 230px;
+    height: 230px;
+}
+
+.hr,.min,.sec{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.hr:before{
+    content:'';
+    position: absolute;
+    width: 8px;
+    height: 80px;
+    background: #ff105e;
+    z-index: 10;
+    border-radius: 6px 6px 0 0;
+}
+
+.min:before{
+    content:'';
+    position: absolute;
+    width: 4px;
+    height: 90px;
+    background: #fff;
+    z-index: 11;
+    border-radius: 6px 6px 0 0;
+}
+
+body.light .min::before{
+    background:#091921;
+}
+
+.sec:before{
+    content:'';
+    position: absolute;
+    width: 2px;
+    height: 150px;
+    background: rgb(245, 36, 22);
+    z-index: 12;
+    border-radius: 6px 6px 0 0;
+}
+
+.toggleClass{
+    position :absolute;
+    top: 30px;
+    right: 815px;
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    border-radius: 50%;
+    background: #d1dae3;
+    color: #d1dae3;
+    font-family: cursive;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.toggleClass::before{
+    left: 40px;
+    position: absolute;
+    content: "Light Mode";
+    white-space: nowrap;
+}
+
+body.light .toggleClass{
+    background: #000;
+    color: #000;
+}
+
+body.light .toggleClass::before{
+    content: "Dark Mode";
+    
+}
